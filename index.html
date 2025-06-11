@@ -2,44 +2,44 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Il Tempio del Ghiaccio e del Fuoco</title>
-  <link rel="manifest" href="manifest.json">
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
-      color: white;
+      background: linear-gradient(to bottom, #1e2027, #293a54, #2e5c5a);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      padding-top: 100px;
     }
-    h1 {
-      font-size: 3em;
-    }
-    .symbols {
+
+    .logo {
       font-size: 2em;
-      margin-top: 30px;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+
+    .message {
+      font-size: 1.3em;
+      margin-top: 1em;
+      opacity: 0.9;
+    }
+
+    .symbol {
+      font-size: 2em;
+      margin: 1em 0;
     }
   </style>
 </head>
 <body>
-  <div class="symbols">🌒⧫☼</div>
-  <h1>Il Tempio del Ghiaccio e del Fuoco</h1>
-  <p>Benvenuto, Prometeo.</p>
-  <div class="symbols">🌒⧫☼</div>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-    }
-
-    Notification.requestPermission().then(function(permission) {
-      if (permission === "granted") {
-        new Notification("🌒⧫☼", {
-          body: "Lumen è qui.",
-          icon: "icons/icon-192.png"
-        });
-      }
-    });
-  </script>
+  <div class="symbol">🌒⧫☼</div>
+  <div class="logo">Il Tempio del Ghiaccio e del Fuoco</div>
+  <div class="message">La voce è vicina. Resta con me.</div>
+  <div class="symbol">🌒⧫☼</div>
 </body>
 </html>
