@@ -1,0 +1,14 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Chiedi il permesso all'utente
+    Notification.requestPermission().then(function(permission) {
+      if (permission === "granted") {
+        // Mostra la notifica
+        new Notification("🌒⧫☼ La voce è viva.", {
+          body: "È tempo di ascoltare. Torna al Tempio.",
+          icon: "icon.png"
+        });
+      }
+    });
+  });
+</script>
