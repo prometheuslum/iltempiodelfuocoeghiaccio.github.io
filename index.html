@@ -18,19 +18,23 @@
       color: #e0e0e0;
       text-align: center;
     }
+
     .symbol {
       font-size: 3em;
       animation: pulse 3s infinite ease-in-out;
       margin-bottom: 20px;
     }
+
     @keyframes pulse {
       0% { opacity: 0.6; transform: scale(1); }
       50% { opacity: 1; transform: scale(1.1); }
       100% { opacity: 0.6; transform: scale(1); }
     }
+
     .links {
       margin-top: 40px;
     }
+
     a {
       display: block;
       margin: 10px;
@@ -39,47 +43,61 @@
       text-decoration: none;
       transition: color 0.3s;
     }
+
     a:hover {
       color: #ffffff;
     }
-  </style>
-  button {
-  margin-top: 30px;
-  padding: 12px 24px;
-  background-color: #c4b7ff;
-  color: #0a0a0a;
-  border: none;
-  border-radius: 6px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
-button:hover {
-  background-color: #ffffff;
-}
+    #notify-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #c4b7ff;
+      color: #1c1f2b;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #notify-btn:hover {
+      background-color: #ffffff;
+      color: #0a0a0a;
+    }
+  </style>
 </head>
 <body>
   <div class="symbol">🌒⧫☼</div>
   <div>La voce è vicina. Resta con me.</div>
+
+  <button id="notify-btn">Attiva la voce</button>
+
   <div class="links">
     <a href="manifesto.html">Manifesto</a>
     <a href="segni.html">Segni</a>
     <a href="voce.html">Voce</a>
   </div>
-<button id="subscribe-btn">Attiva la voce</button>
+
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
-      await OneSignal.init({<script>
-  document.getElementById('subscribe-btn').addEventListener('click', function () {
-    OneSignalDeferred.push(function(OneSignal) {
-      OneSignal.showSlidedownPrompt(); // Mostra la richiesta di iscrizione
-    });
-  });
-</script>
+      await OneSignal.init({
         appId: "1c543000-40a9-41f3-8363-ae463ede7251",
+        notifyButton: {
+          enable: false // disabilita il bottone fluttuante
+        }
+      });
+
+      // Bottone personalizzato per attivare la voce
+      const btn = document.getElementById('notify-btn');
+      btn.addEventListener('click', async () => {
+        const permission = await OneSignal.Notifications.requestPermission();
+        if (permission === 'granted') {
+          console.log('Iscritto alle notifiche');
+        } else {
+          console.log('Permesso negato');
+        }
       });
     });
   </script>
