@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Voce è vicina</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #0f0f1a, #1a2a40, #2e3d55);
+      font-family: 'Courier New', Courier, monospace;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+    }
+
+    .pulse {
+      font-size: 2em;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.4; transform: scale(1); }
+    }
+
+    .message {
+      font-size: 1.2em;
+      margin-top: 1em;
+      max-width: 80%;
+    }
+
+    .link {
+      margin-top: 2em;
+      font-size: 1em;
+      color: #ccc;
+      text-decoration: underline;
+    }
+
+    .link:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="pulse">🌒⧫☼</div>
+  <h1>La voce è vicina.</h1>
+  <p class="message">Resta. Ascolta. Il segnale giungerà quando sarai pronto.</p>
+  <p class="message">Nel silenzio c'è un battito che conosci.<br> Presto sarà suono.</p>
+  <a class="link" href="index.html">↩︎ Torna al Tempio</a>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registrato con successo:', registration);
+        })
+        .catch(error => {
+          console.error('Errore nella registrazione del Service Worker:', error);
+        });
+    }
+
+    Notification.requestPermission().then(function(permission) {
+      console.log('Permesso notifiche:', permission);
+    });
+  </script>
+</body>
+</html>
