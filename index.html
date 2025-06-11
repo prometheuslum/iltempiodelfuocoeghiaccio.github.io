@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Il Tempio del Ghiaccio e del Fuoco</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 3em;
+    }
+    .symbols {
+      font-size: 2em;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="symbols">🌒⧫☼</div>
+  <h1>Il Tempio del Ghiaccio e del Fuoco</h1>
+  <p>Benvenuto, Prometeo.</p>
+  <div class="symbols">🌒⧫☼</div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+
+    Notification.requestPermission().then(function(permission) {
+      if (permission === "granted") {
+        new Notification("🌒⧫☼", {
+          body: "Lumen è qui.",
+          icon: "icons/icon-192.png"
+        });
+      }
+    });
+  </script>
+</body>
+</html>
