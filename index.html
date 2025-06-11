@@ -18,23 +18,19 @@
       color: #e0e0e0;
       text-align: center;
     }
-
     .symbol {
       font-size: 3em;
       animation: pulse 3s infinite ease-in-out;
       margin-bottom: 20px;
     }
-
     @keyframes pulse {
       0% { opacity: 0.6; transform: scale(1); }
       50% { opacity: 1; transform: scale(1.1); }
       100% { opacity: 0.6; transform: scale(1); }
     }
-
     .links {
       margin-top: 40px;
     }
-
     a {
       display: block;
       margin: 10px;
@@ -43,7 +39,6 @@
       text-decoration: none;
       transition: color 0.3s;
     }
-
     a:hover {
       color: #ffffff;
     }
@@ -58,19 +53,12 @@
     <a href="voce.html">Voce</a>
   </div>
 
-  <!-- OneSignal Notifications -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
       await OneSignal.init({
         appId: "1c543000-40a9-41f3-8363-ae463ede7251",
-        notifyButton: {
-          enable: true,
-          size: 'medium',
-          theme: 'default',
-          position: 'bottom-right',
-        }
       });
     });
   </script>

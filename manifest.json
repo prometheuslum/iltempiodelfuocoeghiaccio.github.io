@@ -1,0 +1,9 @@
+{
+  "name": "Il Tempio del Ghiaccio e del Fuoco",
+  "short_name": "Tempio",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#1c1f2b",
+  "icons": []
+}
