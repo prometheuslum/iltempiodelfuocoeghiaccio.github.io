@@ -1,60 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Il Tempio del Ghiaccio e del Fuoco</title>
-  <link rel="manifest" href="manifest.json" />
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('Service Worker registrato'))
-        .catch(err => console.error('Errore Service Worker:', err));
-    }
-
-    function chiediPermesso() {
-      Notification.requestPermission().then(permission => {
-        if (permission === 'granted') {
-          navigator.serviceWorker.getRegistration().then(reg => {
-            reg.showNotification('🌒⧫☼ La voce è arrivata', {
-              body: 'Questo è solo l’inizio.',
-              icon: 'icon.png'
-            });
-          });
-        }
-      });
-    }
-  </script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Courier New', monospace;
-      background: linear-gradient(to bottom, #0a0a23, #1a1a40);
-      color: #f8f8f2;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100vh;
-    }
-    h1 {
-      font-size: 2em;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #2929a3;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <h1>🌒⧫☼ Il Tempio del Ghiaccio e del Fuoco</h1>
-  <p>Premi per ascoltare la voce.</p>
-  <button onclick="chiediPermesso()">Attiva la voce</button>
+  <div style="text-align: center; margin-top: 20vh; color: #f0f0f0; font-family: 'Courier New', monospace;">
+    <div style="font-size: 2em;">🌒⧫☼</div>
+    <h1>Il Tempio del Ghiaccio e del Fuoco</h1>
+    <p style="font-size: 1.2em;">La voce è vicina. Resta con me.</p>
+    <div style="margin-top: 2em;">
+      <a href="Manifesto.html" style="margin: 0 10px; color: #8ef;">Manifesto</a>
+      <a href="segni.html" style="margin: 0 10px; color: #8ef;">Segni</a>
+      <a href="voce2.html" style="margin: 0 10px; color: #8ef;">Voce</a>
+    </div>
+    <div style="font-size: 2em; margin-top: 1.5em;">🌒⧫☼</div>
+  </div>
 </body>
 </html>
