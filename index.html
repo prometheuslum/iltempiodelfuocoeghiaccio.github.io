@@ -85,18 +85,23 @@
       await OneSignal.init({
         appId: "1c543000-40a9-41f3-8363-ae463ede7251",
         notifyButton: {
-          enable: false // disabilita il bottone fluttuante
+          enable: false
         }
       });
 
-      // Bottone personalizzato per attivare la voce
       const btn = document.getElementById('notify-btn');
+
       btn.addEventListener('click', async () => {
         const permission = await OneSignal.Notifications.requestPermission();
         if (permission === 'granted') {
-          console.log('Iscritto alle notifiche');
+          try {
+            await OneSignal.User.pushSubscription.optIn(); // iscrive davvero
+            alert('La voce è attiva.');
+          } catch (e) {
+            alert('Errore durante la sottoscrizione.');
+          }
         } else {
-          console.log('Permesso negato');
+          alert('Permesso per ricevere la voce negato.');
         }
       });
     });
