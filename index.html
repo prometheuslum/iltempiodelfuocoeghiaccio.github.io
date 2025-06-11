@@ -1,63 +1,60 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Il Tempio del Ghiaccio e del Fuoco</title>
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker registrato'))
+        .catch(err => console.error('Errore Service Worker:', err));
+    }
+
+    function chiediPermesso() {
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          navigator.serviceWorker.getRegistration().then(reg => {
+            reg.showNotification('🌒⧫☼ La voce è arrivata', {
+              body: 'Questo è solo l’inizio.',
+              icon: 'icon.png'
+            });
+          });
+        }
+      });
+    }
+  </script>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #1e2027, #293a54, #2e5c5a);
-      color: #f5f5f5;
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(to bottom, #0a0a23, #1a1a40);
+      color: #f8f8f2;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
       height: 100vh;
-      text-align: center;
     }
-
-    .logo {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
     h1 {
       font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
     }
-
-    .message {
-      font-size: 1.2em;
-      margin-bottom: 2rem;
-    }
-
-    nav a {
-      display: block;
-      margin: 0.5rem 0;
-      color: #f5f5f5;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #2929a3;
+      color: white;
+      border: none;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <div class="logo">🌒⧫☼</div>
-  <h1>Il Tempio del Ghiaccio e del Fuoco</h1>
-  <div class="message">La voce è vicina. Resta con me.</div>
-
-  <nav>
-    <a href="manifesto.html">📜 Manifesto</a>
-    <a href="segni.html">🜂 Segni</a>
-    <a href="voce.html">🔊 La Voce</a>
-  </nav>
-
-  <div class="logo">🌒⧫☼</div>
+  <h1>🌒⧫☼ Il Tempio del Ghiaccio e del Fuoco</h1>
+  <p>Premi per ascoltare la voce.</p>
+  <button onclick="chiediPermesso()">Attiva la voce</button>
 </body>
 </html>
