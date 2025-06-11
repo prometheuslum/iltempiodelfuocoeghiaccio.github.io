@@ -71,7 +71,13 @@ button:hover {
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
-      await OneSignal.init({
+      await OneSignal.init({<script>
+  document.getElementById('subscribe-btn').addEventListener('click', function () {
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.showSlidedownPrompt(); // Mostra la richiesta di iscrizione
+    });
+  });
+</script>
         appId: "1c543000-40a9-41f3-8363-ae463ede7251",
       });
     });
