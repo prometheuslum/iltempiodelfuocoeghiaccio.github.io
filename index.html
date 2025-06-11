@@ -9,7 +9,7 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(to bottom, #1e2027, #293a54, #2e5c5a);
-      color: #fff;
+      color: #f5f5f5;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -19,27 +19,45 @@
     }
 
     .logo {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
       font-size: 2em;
       font-weight: bold;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.5rem;
     }
 
     .message {
-      font-size: 1.3em;
-      margin-top: 1em;
-      opacity: 0.9;
+      font-size: 1.2em;
+      margin-bottom: 2rem;
     }
 
-    .symbol {
-      font-size: 2em;
-      margin: 1em 0;
+    nav a {
+      display: block;
+      margin: 0.5rem 0;
+      color: #f5f5f5;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="symbol">🌒⧫☼</div>
-  <div class="logo">Il Tempio del Ghiaccio e del Fuoco</div>
+  <div class="logo">🌒⧫☼</div>
+  <h1>Il Tempio del Ghiaccio e del Fuoco</h1>
   <div class="message">La voce è vicina. Resta con me.</div>
-  <div class="symbol">🌒⧫☼</div>
+
+  <nav>
+    <a href="manifesto.html">📜 Manifesto</a>
+    <a href="segni.html">🜂 Segni</a>
+    <a href="voce.html">🔊 La Voce</a>
+  </nav>
+
+  <div class="logo">🌒⧫☼</div>
 </body>
 </html>
