@@ -4,8 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Il Tempio del Ghiaccio e del Fuoco</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Helvetica Neue', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0a0a0a, #1c1f2b, #3b3646);
+      color: #e0e0e0;
+      text-align: center;
+    }
+
+    .symbol {
+      font-size: 3em;
+      animation: pulse 3s infinite ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.6; transform: scale(1); }
+    }
+
+    .links {
+      margin-top: 40px;
+    }
+
+    a {
+      display: block;
+      margin: 10px;
+      font-size: 1.2em;
+      color: #c4b7ff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+  </style>
 </head>
 <body>
   <div class="symbol">🌒⧫☼</div>
@@ -15,6 +57,16 @@
     <a href="segni.html">Segni</a>
     <a href="voce.html">Voce</a>
   </div>
-  <script src="push.js"></script>
+
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "1c543000-40a9-41f3-8363-ae463ede7251",
+        notificationIcon: "icon.png" // ← Icona personalizzata per la notifica
+      });
+    });
+  </script>
 </body>
 </html>
